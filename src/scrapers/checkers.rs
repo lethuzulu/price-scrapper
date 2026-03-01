@@ -3,6 +3,7 @@ use anyhow::Result;
 use reqwest::header::{HeaderMap, HeaderValue};
 use serde::Deserialize;
 use serde_json::json;
+use chrono::{DateTime, Utc};
 
 pub struct Checkers {
     pub url: String,
@@ -70,23 +71,32 @@ struct CheckersProduct {
     pub id: String,
     pub store_id: String,
     pub name: String,
-    pub display_name: String,
-    pub description: Option<String>,
-    pub short_description: Option<String>,
-    pub long_description: Option<String>,
     pub price_factor: u32,
     pub price_without_decimal: u32,
-    pub currency: String,
-    pub currency_symbol: String,
-    pub discount: u32,
-    pub old_price: u32,
+    pub article_number: Option<String>,
+    pub barcodes: Option<Vec<String>>
+
+}
+
+impl From<CheckersProduct> for Product {
+    fn from(p: CheckersProduct) -> Self {
+        let price = p.price_without_decimal as f64 / p.price_factor as f64;
+        Product {
+            name: p.name,
+            price,
+            retailer: "checkers".to_string(),
+            sku: p.article_number.unwrap_or_default(),
+            barcode: p.barcodes.and_then(|b| b.into_iter().next()),
+            scraped_at: Some(Utc::now()),
+        }
+    }
 }
 
 impl From<CheckersResponse> for Vec<Product> {
     fn from(value: CheckersResponse) -> Self {
         value.products
             .into_iter()
-            .map(|p| Product { name: p.name })
+            .map(Product::from)
             .collect()
     }
 }

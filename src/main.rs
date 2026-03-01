@@ -11,9 +11,6 @@ mod transport;
 async fn main() {
     let client = transport::client::HttpClient::new();
 
-    // let a = client
-    //     .get("https://www.checkers.co.za/api/catalogue/get-products-filter")
-    //     .await;
 
     let checkers = checkers::Checkers::new(
         "https://www.checkers.co.za/api/catalogue/get-products-filter".to_string(),
