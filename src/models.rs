@@ -6,5 +6,5 @@ pub struct Product {
     pub retailer: String,
     pub sku: String,
     pub barcode: Option<String>,
-    pub scraped_at: Option<DateTime<Utc>>
+    pub scraped_at: Option<DateTime<Utc>>,
 }

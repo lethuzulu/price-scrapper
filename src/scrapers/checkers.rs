@@ -1,9 +1,9 @@
 use crate::{models::Product, transport::client::HttpClient};
 use anyhow::Result;
+use chrono::{DateTime, Utc};
 use reqwest::header::{HeaderMap, HeaderValue};
 use serde::Deserialize;
 use serde_json::json;
-use chrono::{DateTime, Utc};
 
 pub struct Checkers {
     pub url: String,
@@ -74,8 +74,7 @@ struct CheckersProduct {
     pub price_factor: u32,
     pub price_without_decimal: u32,
     pub article_number: Option<String>,
-    pub barcodes: Option<Vec<String>>
-
+    pub barcodes: Option<Vec<String>>,
 }
 
 impl From<CheckersProduct> for Product {
@@ -94,9 +93,6 @@ impl From<CheckersProduct> for Product {
 
 impl From<CheckersResponse> for Vec<Product> {
     fn from(value: CheckersResponse) -> Self {
-        value.products
-            .into_iter()
-            .map(Product::from)
-            .collect()
+        value.products.into_iter().map(Product::from).collect()
     }
 }
