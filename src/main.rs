@@ -29,8 +29,5 @@ async fn main() -> Result<()> {
 
     pnp.search("milk").await?;
 
-    // let r = migrate!("./migrations").run(&pool).await?;
-
-    // let repository = Repository::new(pool);
     Ok(())
 }

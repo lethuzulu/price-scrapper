@@ -1,11 +1,17 @@
 use crate::transport::client::HttpClient;
 use anyhow::Result;
+use regex::Regex;
 use reqwest::header::HeaderMap;
 use reqwest::header::HeaderValue;
 use urlencoding::encode;
 use serde::Deserialize;
 use crate::models::Product;
 use chrono::Utc;
+use std::sync::LazyLock;
+
+static BARCODE_REGEX: LazyLock<Regex> = LazyLock::new(|| {
+    Regex::new(r"-(\d{13})-Straight_on").expect("invalid barcode regex")
+});
 
 pub struct Pnp {
     pub url: String,
@@ -32,6 +38,13 @@ struct PnpProduct {
     name: String,
     code: String,
     price: PnpPrice,
+    images: Option<Vec<PnpImage>>,
+}
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+struct PnpImage {
+    url: String,
 }
 
  impl Pnp {
@@ -39,7 +52,8 @@ struct PnpProduct {
         Self { url, client, store_code }
     }
 
-    pub async fn search(&self, item: &str) ->Result<()> {
+
+    pub async fn search(&self, item: &str) ->Result<Vec<Product>> {
         let query = format!("term={}&maxSuggestions=5&maxProducts=50&storeCode={}&lang=en&curr=ZAR",encode(item), self.store_code);
 
         let full_url = format!("{}?{}", self.url.trim_end_matches('?'), query);
@@ -49,20 +63,26 @@ struct PnpProduct {
 
         let response: PnpResponse = self.client.get_json(&full_url, headers).await?;
 
-        println!("response {:?}", response);
-
-        Ok(())
+        Ok(response.into())
     }
  }
 
- impl From<PnpProduct> for Product {
+impl From<PnpProduct> for Product {
     fn from(p: PnpProduct) -> Self {
+        let barcode = p.images.as_deref().and_then(|imgs| {
+            imgs.first().and_then(|img| {
+                BARCODE_REGEX
+                    .captures(&img.url)
+                    .and_then(|caps| caps.get(1).map(|m| m.as_str().to_string()))
+            })
+        });
+
         Self {
             name: p.name,
             price: p.price.value,
             retailer: "picknpay".to_string(),
             sku: p.code,
-            barcode: None,
+            barcode,
             scraped_at: Some(Utc::now())
         }
     }
