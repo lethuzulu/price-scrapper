@@ -11,6 +11,7 @@ mod scheduler;
 mod scrapers;
 mod storage;
 mod transport;
+mod basket;
 
 #[tokio::main]
 async fn main() -> Result<()> {
@@ -26,8 +27,10 @@ async fn main() -> Result<()> {
         client.clone(),
         "WC21".to_string(),
     );
+    let __ = checkers.search("milk").await?;
 
-    pnp.search("milk").await?;
+    let __  = pnp.search("milk").await?;
+
 
     Ok(())
 }

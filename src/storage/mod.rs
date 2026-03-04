@@ -27,10 +27,11 @@ impl Repository {
 
             sqlx::query(
                 r#"
-                INSERT INTO price_records (name, price, retailer, sku, barcode, scraped_at)
-                VALUES ($1, $2, $3, $4, $5, $6)
+                INSERT INTO price_records (canonical_name, name, price, retailer, sku, barcode, scraped_at)
+                VALUES ($1, $2, $3, $4, $5, $6, $7)
                 "#,
             )
+            .bind(product.canonical_name.as_ref())
             .bind(&product.name)
             .bind(product.price)
             .bind(&product.retailer)

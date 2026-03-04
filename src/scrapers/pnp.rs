@@ -78,6 +78,7 @@ impl From<PnpProduct> for Product {
         });
 
         Self {
+            canonical_name: None,
             name: p.name,
             price: p.price.value,
             retailer: "picknpay".to_string(),

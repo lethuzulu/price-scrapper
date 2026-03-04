@@ -1,0 +1,194 @@
+# South African Grocery Basket
+# canonical_name  : the shared name used across all retailers
+# checkers_search : search term for Checkers
+# pnp_search      : search term for Pick n Pay
+# expected_barcode: optional — used to validate the correct product was matched
+
+# ── Dairy & Eggs ────────────────────────────────────────────────────────────
+
+[[basket]]
+canonical_name   = "Clover Full Cream Milk 2L"
+checkers_search  = "clover full cream milk 2l"
+pnp_search       = "clover full cream milk 2l"
+expected_barcode = "6001299000270"
+
+[[basket]]
+canonical_name   = "Clover Low Fat Milk 2L"
+checkers_search  = "clover low fat milk 2l"
+pnp_search       = "clover low fat milk 2l"
+expected_barcode = "6001299000287"
+
+[[basket]]
+canonical_name   = "Clover Full Cream Milk 1L UHT"
+checkers_search  = "clover long life full cream milk 1l"
+pnp_search       = "clover uht full cream milk 1l"
+expected_barcode = "6001299015274"
+
+[[basket]]
+canonical_name   = "Clover Butter 500g"
+checkers_search  = "clover butter 500g"
+pnp_search       = "clover butter 500g"
+expected_barcode = "6001299003189"
+
+[[basket]]
+canonical_name   = "Large Eggs 6-pack"
+checkers_search  = "large eggs 6"
+pnp_search       = "large eggs 6"
+
+[[basket]]
+canonical_name   = "Large Eggs 12-pack"
+checkers_search  = "large eggs 12"
+pnp_search       = "large eggs 12"
+
+# ── Bread ────────────────────────────────────────────────────────────────────
+
+[[basket]]
+canonical_name   = "Albany Superior White Bread 700g"
+checkers_search  = "albany superior white bread 700g"
+pnp_search       = "albany superior white 700g"
+expected_barcode = "6001056304541"
+
+[[basket]]
+canonical_name   = "Albany Superior Brown Bread 700g"
+checkers_search  = "albany superior brown bread 700g"
+pnp_search       = "albany superior brown 700g"
+expected_barcode = "6001056304558"
+
+# ── Pantry Staples ───────────────────────────────────────────────────────────
+
+[[basket]]
+canonical_name   = "Selati White Sugar 2.5kg"
+checkers_search  = "selati white sugar 2.5kg"
+pnp_search       = "selati white sugar 2.5kg"
+expected_barcode = "6009803100044"
+
+[[basket]]
+canonical_name   = "Snowflake Cake Flour 2.5kg"
+checkers_search  = "snowflake cake flour 2.5kg"
+pnp_search       = "snowflake cake flour 2.5kg"
+expected_barcode = "6001152100037"
+
+[[basket]]
+canonical_name   = "Tastic White Rice 2kg"
+checkers_search  = "tastic rice 2kg"
+pnp_search       = "tastic rice 2kg"
+expected_barcode = "6001152200126"
+
+[[basket]]
+canonical_name   = "Sunfoil Sunflower Oil 2L"
+checkers_search  = "sunfoil sunflower oil 2l"
+pnp_search       = "sunfoil sunflower oil 2l"
+expected_barcode = "6001068024094"
+
+[[basket]]
+canonical_name   = "Salt 1kg"
+checkers_search  = "salt 1kg"
+pnp_search       = "salt 1kg"
+
+[[basket]]
+canonical_name   = "White Star Super Maize Meal 5kg"
+checkers_search  = "white star maize meal 5kg"
+pnp_search       = "white star maize meal 5kg"
+expected_barcode = "6001152400117"
+
+# ── Canned & Packaged ────────────────────────────────────────────────────────
+
+[[basket]]
+canonical_name   = "Koo Baked Beans in Tomato Sauce 410g"
+checkers_search  = "koo baked beans 410g"
+pnp_search       = "koo baked beans 410g"
+expected_barcode = "6001068000760"
+
+[[basket]]
+canonical_name   = "Koo Chakalaka Mild & Spicy 410g"
+checkers_search  = "koo chakalaka 410g"
+pnp_search       = "koo chakalaka 410g"
+expected_barcode = "6001068013340"
+
+[[basket]]
+canonical_name   = "All Gold Tomato Sauce 700g"
+checkers_search  = "all gold tomato sauce 700g"
+pnp_search       = "all gold tomato sauce 700g"
+expected_barcode = "6001068010103"
+
+[[basket]]
+canonical_name   = "Lucky Star Pilchards in Tomato 400g"
+checkers_search  = "lucky star pilchards 400g"
+pnp_search       = "lucky star pilchards 400g"
+expected_barcode = "6009510910018"
+
+[[basket]]
+canonical_name   = "Black Cat Peanut Butter Smooth 400g"
+checkers_search  = "black cat peanut butter smooth 400g"
+pnp_search       = "black cat peanut butter smooth 400g"
+expected_barcode = "6001068006984"
+
+# ── Meat ─────────────────────────────────────────────────────────────────────
+
+[[basket]]
+canonical_name   = "Chicken Drumsticks 1kg"
+checkers_search  = "chicken drumsticks 1kg"
+pnp_search       = "chicken drumsticks 1kg"
+
+[[basket]]
+canonical_name   = "Beef Mince 500g"
+checkers_search  = "beef mince 500g"
+pnp_search       = "beef mince 500g"
+
+[[basket]]
+canonical_name   = "Eskort Russians 500g"
+checkers_search  = "eskort russians 500g"
+pnp_search       = "eskort russians 500g"
+expected_barcode = "6001038006133"
+
+# ── Beverages ────────────────────────────────────────────────────────────────
+
+[[basket]]
+canonical_name   = "Freshpak Rooibos Tea 80 bags"
+checkers_search  = "freshpak rooibos 80"
+pnp_search       = "freshpak rooibos 80"
+expected_barcode = "6001148003218"
+
+[[basket]]
+canonical_name   = "Frisco Instant Coffee 100g"
+checkers_search  = "frisco instant coffee 100g"
+pnp_search       = "frisco coffee 100g"
+expected_barcode = "6001009111065"
+
+[[basket]]
+canonical_name   = "Coca-Cola 2L"
+checkers_search  = "coca cola 2l"
+pnp_search       = "coca cola 2l"
+expected_barcode = "5449000131836"
+
+[[basket]]
+canonical_name   = "Liqui-Fruit Orange Juice 2L"
+checkers_search  = "liqui-fruit orange 2l"
+pnp_search       = "liqui-fruit orange 2l"
+expected_barcode = "6001007080507"
+
+# ── Household ────────────────────────────────────────────────────────────────
+
+[[basket]]
+canonical_name   = "Sunlight Dishwashing Liquid 750ml"
+checkers_search  = "sunlight dishwashing 750ml"
+pnp_search       = "sunlight dishwashing liquid 750ml"
+expected_barcode = "6001085020085"
+
+[[basket]]
+canonical_name   = "OMO Auto Washing Powder 2kg"
+checkers_search  = "omo auto 2kg"
+pnp_search       = "omo auto 2kg"
+expected_barcode = "6001085039858"
+
+[[basket]]
+canonical_name   = "Twinsaver Toilet Paper 9-pack"
+checkers_search  = "twinsaver toilet paper 9"
+pnp_search       = "twinsaver toilet paper 9"
+expected_barcode = "6009175503107"
+
+[[basket]]
+canonical_name   = "Colgate Regular Toothpaste 100ml"
+checkers_search  = "colgate regular 100ml"
+pnp_search       = "colgate toothpaste 100ml"
+expected_barcode = "6001067011316"

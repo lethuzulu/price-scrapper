@@ -1,6 +1,7 @@
 use chrono::{DateTime, Utc};
 
 pub struct Product {
+    pub canonical_name: Option<String>,
     pub name: String,
     pub price: f64,
     pub retailer: String,

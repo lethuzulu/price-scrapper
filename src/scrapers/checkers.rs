@@ -86,6 +86,7 @@ impl From<CheckersProduct> for Product {
     fn from(p: CheckersProduct) -> Self {
         let price = p.price_without_decimal as f64 / p.price_factor as f64;
         Product {
+            canonical_name: None,
             name: p.name,
             price,
             retailer: "checkers".to_string(),
