@@ -1,7 +1,7 @@
-use sqlx::{PgPool, query};
-use chrono::{Utc};
 use crate::models::Product;
 use anyhow::Result;
+use chrono::Utc;
+use sqlx::{PgPool, query};
 
 pub struct Repository {
     pool: PgPool,
@@ -19,7 +19,8 @@ impl Repository {
 
         let mut tx = self.pool.begin().await?;
 
-        for product in products { // todo: consider using a single batched insert instead of a loop
+        for product in products {
+            // todo: consider using a single batched insert instead of a loop
             let scrapped_at = product.scraped_at.unwrap_or_else(Utc::now);
             query(
                 r#"
